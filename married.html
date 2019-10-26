@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Married</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#dd8270ff">
+    <link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister|Loved+by+the+King|Lovers+Quarrel&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="imagens/golden--rings--bgblack.png" type="image/x-icon">
+
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+      .container{
+        height: 100vh;
+        width: 100%;
+        background-image: linear-gradient(45deg, #fef0a7ff, #dd8270ff,#b99192ff,#bccdbbff,#b5c07bff);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        }
+        .btn{
+          width:2.5em;
+          height:2.5em;
+          border-radius: 50px;
+          border: none;
+          background-color: transparent;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          position: fixed;
+          cursor: pointer;
+          z-index: 1;
+          transition: ease-in-out 1000ms all;
+        }
+        .btn:hover{
+          transform: scale(1.2);
+        }
+        .btn--goHome{
+          background-color: transparent;
+          top: 0.25em;
+          left: 0.25em;
+          z-index: 1;
+          padding: 0.15em;
+        }
+        .btn--options--one{
+          background-image: url('imagens/married--tools--menu--one.png');
+          top: 0.25em;
+          right: 0.25em;
+          margin-right: 0.25em;
+          }
+        .btn--options--two{
+          background-image: url('imagens/married--tools--menu--two.png');
+          top: 3em;
+          right: 0.25em;
+          margin-right: 0.25em;
+          }
+        .btn--options--three{
+          background-image: url('imagens/married--tools--menu--three.png');
+          top: 5.75em;
+          right: 0.25em;
+          margin-right: 0.25em;
+          }
+          .mc1019{
+            width: auto;
+            border: none;
+            padding: 0.25em 0.75em;
+            border-radius: 50px;
+            color: #666;
+            background-color: transparent;
+            font-family: 'Love Ya Like A Sister', cursive;
+            font-weight: bold;
+            font-size: 0.5em;
+          }
+          .top{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+          }
+          .title{
+            width: 100%;
+            font-family: 'Loved by the King', cursive;
+            color: #ECD454;
+            font-size: 2.5em;
+            line-height: 1em;
+            padding: 0.5em 0;
+            text-shadow: 0.05em 0.05em 0.05em #212121;
+          }
+          .ring{
+	          opacity: 0;
+	          animation-name: animacao;
+	          animation-duration: 5s;
+	          animation-iteration-count: infinite;
+            width: 100%;
+            height: 175px;
+            background-image: url('imagens/golden--rings.png');
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+          }
+          .subtitle{
+            width: 100%;
+            font-family: 'Lovers Quarrel', cursive;
+            color: #fff;
+            font-size: 7em;
+            font-weight: 100;
+            text-shadow: 0.05em 0.05em 0.05em #ecd454;
+          }
+          .sec--all{
+            position: fixed;
+            transform: translateX(100%);
+            width: 100%;
+            height: 100vh;
+            padding: 2em;
+            transition: ease-in-out 500ms all;
+          }
+          .sec--one--pg{
+
+          }
+          .sec--one--pg p{
+            font-family: 'Lovers Quarrel', cursive;
+            font-size: 32px;
+            flex: 1;
+          }
+          .sec--one{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: row wrap;
+            background-color: #ecd454;
+            overflow-y: auto;
+          }
+          .sec--two{
+            background-color: #0088AA;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-flow: row wrap;
+            overflow-y: auto;
+          }
+          .sec--three{
+            background-color: #2CA089;
+          }
+          .sec--two img{
+            width: 70%;
+            transition: ease-in-out 300ms all;
+          }
+          .sec--two img:hover{
+            transform: scale(2);
+          }
+
+          /* Break Point */
+
+          @media screen and (min-width: 768px) {
+            .sec--all p{
+              font-size: 3em;
+            }
+            .btn{
+              width:3.5em;
+              height:3.5em;
+            }
+            .btn--options--two{
+              top: 5em;
+            }
+            .btn--options--three{
+              top: 9.75em;
+            }
+          }
+
+          /* animatedCSS */
+
+          @keyframes animacao{
+            25% {
+              opacity: 1;
+              transform: scale3d(1, 1, 1);
+            }
+            50% {
+              transform: scale3d(1.05, 1.05, 1.05);
+            }
+            to {
+              transform: scale3d(1, 1, 1);
+            }
+          }
+
+          /* animatedCSS */
+
+    </style>
+
+  </head>
+  <body>
+
+    <main class="container">
+      <img onclick="goHome()" class="btn btn--goHome" src="imagens/gohome.svg" alt="botão para retornar a página principal">
+      <!-- <button onclick="goHome()" class="btn btn--goHome">H</button> -->
+      <button onclick="openOne()" class="btn btn--options--one"></button>
+      <button onclick="openTwo()" class="btn btn--options--two"></button>
+      <button onclick="openThree()" class="btn btn--options--three"></button>
+      <header class="top">
+          <div class="title">Auxiliadora & Alexander</div>
+          <div class="ring"></div>
+          <button class="mc1019">Portanto, o que Deus uniu, ninguém o separe". (Marcos 10:9)</button>
+          <div class="subtitle">Casados</div>
+      </header>
+
+      <section id="sec--One" class="sec--all sec--one">
+        <div class="sec--one--pg"><p>Oi, Amor meu. Estamos comemorando 23 Anos de união. Até poderíamos ter feito a mais tempo. Desde que nos conhecemos, pra mim, e acredito que para você também, já estava valendo. Mas Nosso DEUS de alguma forma e pelos motivos D'Ele não nos foi permitido estar juntos. Então, para os homens, será 5 de Novembro de 1996, e para Nosso Pai Eterno será 21 de Desembro de 1996.</p></div>
+        <div class="sec--one--pg"><p>Essa foi a maneira de te homebagear pela data. Pode não ter sido muito sentimental, mas nesse presente estou expressando, desde o início da criação até o final, todo o meu carinho. Na verdade é um presente para nóis dois e para demonstrar as nossas filhas que existe amor entre seus Pais, que vale ainda o casamento nos moldes tradicionais mesmo nos dias de hoje, que família é o maior projeto de Deus e que Ele é a cola que nos uniu até hoje.</p></div>
+      </section>
+      <section id="sec--Two" class="sec--all sec--two">
+            <img src="imagens/married--filhas.svg" alt="">
+            <img src="imagens/married--filhas--01.svg" alt="">
+            <img src="imagens/married--filhas--02.svg" alt="">
+            <img src="imagens/married--filhas--03.svg" alt="">
+            <img src="imagens/married--filhas--04.svg" alt="">
+      </section>
+      <section id="sec--Three" class="sec--all sec--three">
+          <p></p>
+      </section>
+
+    </main>
+
+    <script>
+      function goHome(){
+        var slideThree = window.document.getElementById('sec--Three');
+        var slideTwo = window.document.getElementById('sec--Two');
+        var slideOne = window.document.getElementById('sec--One');
+        slideOne.style.transform = 'translateX(100%)';
+        slideTwo.style.transform = 'translateX(100%)';
+        slideThree.style.transform = 'translateX(100%)';
+      }
+      function openOne(){
+        var slideThree = window.document.getElementById('sec--Three');
+        var slideTwo = window.document.getElementById('sec--Two');
+        var slideOne = window.document.getElementById('sec--One');
+        slideOne.style.transform = 'translateX(0%)';
+        slideTwo.style.transform = 'translateX(100%)';
+        slideThree.style.transform = 'translateX(100%)';
+      }
+      function openTwo(){
+        var slideThree = window.document.getElementById('sec--Three');
+        var slideTwo = window.document.getElementById('sec--Two');
+        var slideOne = window.document.getElementById('sec--One');
+        slideTwo.style.transform = 'translateX(0%)';
+        slideOne.style.transform = 'translateX(100%)';
+        slideThree.style.transform = 'translateX(100%)';
+      }
+      function openThree(){
+        var slideThree = window.document.getElementById('sec--Three');
+        var slideTwo = window.document.getElementById('sec--Two');
+        var slideOne = window.document.getElementById('sec--One');
+        slideThree.style.transform = 'translateX(0%)';
+        slideOne.style.transform = 'translateX(100%)';
+        slideTwo.style.transform = 'translateX(100%)';
+      }
+    </script>
+
+  </body>
+</html>
+
+
+<!--
+
+FONTES
+
+font-family: 'Loved by the King', cursive;
+font-family: 'Love Ya Like A Sister', cursive;
+font-family: 'Lovers Quarrel', cursive;
+
+-->
