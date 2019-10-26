@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* html{
+            scroll-behavior: smooth;
+        } */
+        body{
+            background-image: linear-gradient(45deg, #211D2B, rgb(42, 42, 61));
+        }
+        .container{
+            display: flex;
+            flex-direction: row;
+        }
+        .h1{
+            color: rgb(252, 180, 48);
+            text-transform: uppercase;
+            font-size: 0.9em;
+            font-family: monospace;
+            text-align: center;
+            padding: 1em 0;
+            background-image: linear-gradient(45deg, #303942, #252F46);
+        }
+        .all--info{
+            flex: 3;
+            padding: 1em;
+            overflow: auto;
+        }
+        .all--info h6{
+            font-size: 1.5em;
+            font-family: monospace;
+            color: #fff;
+        }
+        .all--info p{
+            color: #fff;
+            font-family: sans-serif;
+            line-height: 1.5em;
+        }
+        .home{
+            background-color: transparent;
+            width: 100%;
+            height: 100vh;
+            padding: 1em;
+            margin-bottom: 0.5em;
+        }
+        .home h6{
+            color: #fff;
+            font-family: monospace;
+        }
+        .about,
+        .partners,
+        .contact{
+            width: 100%;
+            height: 100vh;
+            padding: 1em;
+            margin-bottom: 0.5em;
+            background-color: transparent;
+            background-image: linear-gradient(45deg, rgb(50, 44, 65), rgb(51, 51, 63));
+        }
+        .menu--desktop{
+            position: sticky;
+            top: 0;
+            flex: 1;
+            background-color: transparent;
+            width: 25%;
+            height: 100vh;
+            overflow: auto;
+        }
+        .menu--desktop a{
+            color: rgb(252, 180, 48);
+            text-decoration: none;
+            font-family: monospace;
+            font-size: 0.8em;
+            display: block;
+            padding: 1em 0 1em 0.5em;
+            transition: ease-in-out 300ms all;
+        }
+        .menu--desktop a::before{
+            content: "";
+            position: relative;
+            background-color: gold;
+            padding: 0.01em 0.55em;
+            border-radius: 50%;
+            margin-right: 0.5em;
+        }
+        .menu--desktop a:hover{
+            color: #ccc;
+            padding-left: 1em;
+            background-image: linear-gradient(45deg, rgb(50, 44, 65), rgb(51, 51, 63));
+            border-top-right-radius: 0.5em;
+            border-bottom-right-radius: 0.5em;
+        }
+        .btn--mobile{
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            border: none;
+            color: #212121;
+            background-color: gold;
+            padding: 0.25em 0.5em;
+            border-radius: 0.25em;
+        }
+        .menu--mobile{
+            min-width: 320px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            transform: translateX(100%);
+            transition: ease-in-out 300ms all;
+            background-color: rgb(50, 44, 65);
+        }
+        .menu--mobile li{
+            border-bottom: 0.01em solid #fff;
+            display: block;
+        }
+        .menu--mobile a{
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-family: sans-serif;
+            font-size: 0.8em;
+            font-weight: bolder;
+            display: block;
+            padding: 1em 0 1em 0.5em;
+            transition: ease-in-out 300ms all;
+        }
+        .menu--mobile a:hover{
+            background-image: linear-gradient(45deg, rgb(50, 44, 65), rgb(51, 51, 63));
+            color: rgb(161, 161, 161);
+            padding-left: 1em;
+        }
+        .btn--mobile--close{
+            border: none;
+            color: #212121;
+            background-color: gold;
+            padding: 0.25em 0.5em;
+            border-radius: 0.25em;
+        }
+        form{
+            padding: 0.5em;
+        }
+        form p{
+            padding: 0.5em 0;
+        }
+        form label{
+            color: gold;
+            font-family: monospace;
+        }
+        form input[type="text"]{
+            border: none;
+            background-color: rgba(255, 217, 0, 0.5);
+            padding: 0.5em;
+            height: 2em;
+            color: #fff;
+            font-family: monospace;
+        }form textarea{
+            border: none;
+            background-color: rgba(255, 217, 0, 0.5);
+            padding: 0.5em;
+            color: #fff;
+            font-family: monospace;
+        }
+        form input[type="submit"]{
+            background-color: gold;
+            color: #212121;
+            border: none;
+            padding: 0.25em 1em;
+            border-radius: 0.25em;
+        }
+
+        @media screen and (max-width: 810px) and (min-width: 100px) {
+            .menu--desktop{
+                display: none;
+            }
+            .btn--mobile{
+                display: block;
+            }
+        }
+        /* @media screen and (width: 811px){
+            .btn--mobile{
+                display: block;
+            }
+        } */
+
+    </style>
+</head>
+<body>
+    <button onclick="openSlide()" class="btn--mobile">open</button>
+    <nav id="mobile" class="menu--mobile">
+        <ul>
+            <button onclick="closeSlide()" class="btn--mobile--close">close</button>
+            <li><a href="#">home</a></li>
+            <li><a href="#aboutInfo">about</a></li>
+            <li><a href="#partnersInfo">partners</a></li>
+            <li><a href="#contactInfo">contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <nav class="menu--desktop">
+            <ul>
+                <h1 class="h1">portfolio</h1>
+                <li><a href="#">home</a></li>
+                <li><a href="#aboutInfo">about</a></li>
+                <li><a href="#partnersInfo">partners</a></li>
+                <li><a href="#contactInfo">contact</a></li>
+            </ul>
+            <form action="">
+                <p><label for="">Nome</label></p>
+                <p><input type="text" required></p>
+                <p><label for="">Mensagem</label></p>
+                <p><textarea name="" id=""  rows="10" required></textarea></p>
+                <p><input type="submit" value="Enviar"></p>
+            </form>
+        </nav>
+        <section class="all--info">
+            <div id="home" class="home">
+                <h6>Home</h6>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam delectus recusandae cupiditate, corrupti explicabo id eum impedit reprehenderit debitis, corporis commodi nisi a laudantium vitae ipsa deserunt eius numquam provident! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consequatur doloribus fugit voluptatem iusto, eos soluta provident, voluptatibus delectus similique saepe explicabo veniam, eius in. Alias consectetur fuga doloremque maiores.</p>
+            </div>
+            <div id="aboutInfo" class="about">
+                <h6>About</h6>
+            </div>
+            <div id="partnersInfo" class="partners">
+                <h6>Partners</h6>
+            </div>
+            <div id="contactInfo" class="contact">
+                <h6>Contact</h6>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+
+        function openSlide(){
+            let abrir = window.document.getElementById('mobile');
+            abrir.style.transform = 'translateX(0%)'            
+        }
+        function closeSlide(){
+            let fechar = window.document.getElementById('mobile');
+            fechar.style.transform = 'translateX(100%)'
+        }
+
+    </script>
+
+</body>
+</html>
