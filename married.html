@@ -15,14 +15,21 @@
         padding: 0;
         box-sizing: border-box;
         }
+        body{
+        background-image: url('imagens/template_background.svg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        }
       .container{
         height: 100vh;
         width: 100%;
-        background-image: linear-gradient(45deg, #fef0a7ff, #dd8270ff,#b99192ff,#bccdbbff,#b5c07bff);
+        background-image: linear-gradient(45deg, rgba(254, 239, 167, 0.7), rgba(221, 130, 112, 0.7),rgba(185, 145, 146, 0.7),rgba(188, 205, 187, 0.7),rgba(181, 192, 123, 0.7));
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        
         }
         .btn{
           width:2.5em;
@@ -56,18 +63,17 @@
           }
         .btn--options--two{
           background-image: url('images/married--tools--menu--two.png');
-          top: 6em;
+          top: 8em;
           right: 0.5em;
           margin-right: 0.25em;
           }
         .btn--options--three{
           background-image: url('images/married--tools--menu--three.png');
-          top: 11em;
+          top: 16em;
           right: 0.5em;
           margin-right: 0.25em;
           }
           .mc1019{
-            width: auto;
             border: none;
             padding: 0.25em 0.75em;
             border-radius: 50px;
@@ -75,15 +81,15 @@
             background-color: transparent;
             font-family: 'Love Ya Like A Sister', cursive;
             font-weight: bold;
-            font-size: 0.5em;
+            font-size: 1em;
+            text-align: center;
           }
           .top{
-            width: 100%;
             height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
-            text-align: center;
+            align-items: center;
+            flex-direction: column;
           }
           .title{
             width: 100%;
@@ -93,18 +99,18 @@
             line-height: 1em;
             padding: 0.5em 0;
             text-shadow: 0.05em 0.05em 0.05em #212121;
+            text-align: center;
           }
           .ring{
 	          opacity: 0;
 	          animation-name: animacao;
 	          animation-duration: 5s;
 	          animation-iteration-count: infinite;
-            width: 100%;
-            height: 175px;
-            background-image: url('images/golden--rings.png');
+            max-width: 150px;
+            /* background-image: url('images/golden--rings.png');
             background-position: center;
             background-size: contain;
-            background-repeat: no-repeat;
+            background-repeat: no-repeat; */
           }
           .subtitle{
             width: 100%;
@@ -113,6 +119,7 @@
             font-size: 7em;
             font-weight: 100;
             text-shadow: 0.05em 0.05em 0.05em #ecd454;
+            text-align: center;
           }
           .sec--all{
             position: fixed;
@@ -127,9 +134,11 @@
           }
           .sec--one--pg p{
             font-family: 'Love Ya Like A Sister', cursive;
-            font-size: 32px;
+            font-size: 22px;
             font-weight: 100;
             flex: 1;
+            color: #fff;
+            text-shadow: 0.1em 0.1em 0 #212121;
           }
           .sec--one{
             display: flex;
@@ -206,8 +215,9 @@
       <button onclick="openThree()" class="btn btn--options--three"></button>
       <header class="top">
           <div class="title">Auxiliadora & Alexander</div>
-          <div class="ring"></div>
-          <button class="mc1019">Portanto, o que Deus uniu, ninguém o separe". (Marcos 10:9)</button>
+          <img class="ring" src="images/golden--rings.png" alt="">
+          <!-- <div class="ring"></div> -->
+          <div class="mc1019">Portanto, o que Deus uniu, ninguém o separe". (Marcos 10:9)</div>
           <div class="subtitle">Casados</div>
       </header>
 
