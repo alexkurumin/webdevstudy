@@ -177,24 +177,54 @@
         }
         .fa-bars{
             display: none;
+            cursor: pointer;
+        }
+        .fa-times{
+            display: none;
         }
 
         /* BREAK POINT */
 
         @media (min-width: 300px) and (max-width: 880px){
-            .topo{
-                display: none;
-            }
             .fa-bars{
                 display: block;
                 color: #212121;
                 background-color: rgba(255, 255, 255, 0.5);
-                font-size: 35px;
+                font-size: 25px;
                 padding: 5px 8px;
                 border-radius: 5px;
                 position: fixed;
                 top: 5px;
                 right: 5px;
+                z-index: 1;
+            }
+            .fa-times{
+                display: block;
+                color: #fff;
+                font-size: 25px;
+                cursor: pointer;
+            }
+            .topo ul{
+                position: absolute;
+                top: 0;
+                transform: translateX(-60vw);
+                width: 60vw;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: column;
+                background-color: #511845;
+                transition: ease-in-out 300ms all;
+            }
+            .topo li{
+                width: 90%;
+                margin: 2px 0;
+            }
+            .topo a{
+                padding: 5px 15px;
+            }
+            .topo a:hover{
+                padding: 5px 15px;
             }
         }
 
@@ -206,7 +236,8 @@
         <i class="fas fa-bars"></i>
         <header class="topo">
             <ul>
-                <li><a href="">home</a></li>
+                <i class="fa fa-times" aria-hidden="true"></i>
+                <li><a href="#">home</a></li>
                 <li><a href="">services</a></li>
                 <li><a href="">products</a></li>
                 <li><a href="">about</a></li>
@@ -241,6 +272,21 @@
             </div>
         </section>
     </main>
+    <script>
+        function openTop(){
+            window.document.querySelector('.fa-bars').addEventListener('click',()=>{
+                window.document.querySelector('.topo ul').style.transform='translateX(0vw)';
+                });
+                }
+                openTop();
+
+        function closeTop(){
+            window.document.querySelector('.fa-times').addEventListener('click',()=>{
+                window.document.querySelector('.topo ul').style.transform='translateX(-60vw)';
+            });
+        }
+        closeTop()
+    </script>
 </body>
 </body>
 </html>
