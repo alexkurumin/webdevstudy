@@ -38,7 +38,7 @@
             width: 20px;
             height: 20px;
             font-weight: 900;
-            line-height: 5px;
+            line-height: 10px;
             border: 0;
             text-transform: uppercase;
             border-radius: 20px;
@@ -47,6 +47,7 @@
             top: 8px;
             left: 8px;
             display: block;
+            font-size: 12px;
         }
         .btnClosePopUp:hover{
             background-color: crimson;
