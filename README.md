@@ -1,6 +1,6 @@
 **Repositório de Desenvolvimento Web**
 
-<img src="https://cdn.pixabay.com/photo/2018/06/08/00/48/developer-3461405_960_720.png">
+<img src="https://cdn.pixabay.com/photo/2018/06/08/00/48/developer-3461405_960_720.png" width='300px'>
 
 - [Emoji](https://alexkurumin.github.io/webdevstudy/emoji.html)
 - [Married](https://alexkurumin.github.io/webdevstudy/married.html)
