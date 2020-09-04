@@ -65,8 +65,8 @@
 <body>
     <button>click on the central text</button>
     <main>
-        <h1 class="show">Talk to me. I will always be here to hear you.</h1>
-        <h1 class="noShow">Fale comigo. Eu estarei sempre aqui para te ouvir.</h1>
+        <h1 title='CLICK' class="show">Talk to me. I will always be here to hear you.</h1>
+        <h1 title='CLICK' class="noShow">Fale comigo. Eu estarei sempre aqui para te ouvir.</h1>
         <header>
         </header>
         <section>
@@ -78,7 +78,7 @@
     </main>
     <script>
         function enableDisc(){
-            document.querySelector('.show').addEventListener('mouseover',()=>{
+            document.querySelector('.show').addEventListener('click',()=>{
                 document.querySelector('.show').style.display = 'none';
                 document.querySelector('.noShow').style.display = 'block';
             });
@@ -86,7 +86,7 @@
         enableDisc();
 
         function renableDisc(){
-            document.querySelector('.noShow').addEventListener('mouseout',()=>{
+            document.querySelector('.noShow').addEventListener('click',()=>{
                 document.querySelector('.show').style.display = 'block';
                 document.querySelector('.noShow').style.display = 'none';
             });
