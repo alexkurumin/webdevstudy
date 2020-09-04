@@ -78,7 +78,7 @@
     </main>
     <script>
         function enableDisc(){
-            document.querySelector('.show').addEventListener('click',()=>{
+            document.querySelector('.show').addEventListener('mouseover',()=>{
                 document.querySelector('.show').style.display = 'none';
                 document.querySelector('.noShow').style.display = 'block';
             });
@@ -86,7 +86,7 @@
         enableDisc();
 
         function renableDisc(){
-            document.querySelector('.noShow').addEventListener('click',()=>{
+            document.querySelector('.noShow').addEventListener('mouseout',()=>{
                 document.querySelector('.show').style.display = 'block';
                 document.querySelector('.noShow').style.display = 'none';
             });
