@@ -1,0 +1,1691 @@
+											#########################
+											#       JS BÁSICO       #
+											#########################
+#########################
+#	Tipos de Dados		#
+#########################
+
+let nome = 'Alexander';
+console.log(typeof(nome));		--> string
+
+let idade = 52;
+console.log(typeof(idade));		--> number
+
+let salvo = true;
+console.log(typeof(salvo));		--> boolean
+
+let cidade;
+console.log(typeof(cidade));	--> undefined
+
+let tipo = typeof nome;
+console.log(tipo);				--> string
+
+
+#########################
+# Definição de variável #
+#########################
+
+	var nome = "Alexander";
+
+
+Comentário
+
+	var nome = "Alexander";
+
+
+Referente a página
+
+	document.write("Esse teste");
+
+	document.write("<img src='http://www.google.com.br/google.jpg'");
+
+#######################
+# Refresh ou Redirect #
+#######################
+
+	<button onclick="window.location.href='http://www.google.com.br';">Ir para o Google</button>
+    <button onclick="window.location.href=window.location.href;">Atualizar a página</button>
+
+######################
+# Modificando o HTML #
+######################
+
+	########################################
+	# Alterando texto da div e de um imput #
+	########################################
+
+	<div id="area">Alguma coisa...</div>
+	
+	<button onclick="document.getElementById('area').innerHTML=prompt('Qual o seu nome?');">Fazer Ação</button>
+
+	<h1 id="titulo">Seja bem vindo(a)</h1>
+    <input id="campo" type="text" value="Campo vazio" name="" id="">
+    
+        let titulo = window.document.getElementById('titulo');
+        titulo.innerHTML = 'Olá Mundo, outra vez !!!';
+
+        let campo = window.document.getElementById('campo');
+        campo.value='Nome do campo';
+
+	############################
+	# Alterando texto do botão #
+	############################
+
+	<button onclick="this.innerHTML=prompt('Novo texto do bptão')">Alterar texto botão</button>
+
+###################
+# Criando Funções #
+###################
+
+<h1 class="titulo">Título</h1>
+<input type="text" name="" id="" class="campo" value="Campo">
+
+	<script>
+        function alterar(){
+            window.document.querySelector('.titulo').innerHTML='Novo Título';
+            window.document.querySelector('.campo').value='Novo campo';
+        }
+        alterar();
+    </script>
+
+	function fazerAcao() {
+		var area = document.getElementById("area");
+		var texto = prompt("Qual o seu nome?");
+		area.innerHTML=texto;
+	}
+
+<section id="area">Alguma coisa...</section><br><br>
+<button onclick="fazerAcao()">Fazer Ação</button>
+
+	##################
+	# COM PARÂMETROS #
+	##################
+
+function fazerAcao(nome) {
+	var area = document.getElementById("area");
+	var texto = prompt("Qual o o seu sobrenome?");
+	area.innerHTML=nome+" "+texto;
+}
+
+<section id="area">Alguma coisa...</section><br><br>
+<button onclick="fazerAcao('Alexander')">Fazer Ação</button>
+
+#########################
+# Modificando uma lista #
+#########################
+
+function adicionarIngrediente() {
+	var ing = document.getElementById("ingrediente").value;
+	var listahtml = document.getElementById("lista").innerHTML;
+	listahtml = listahtml+"<li>"+ing+"</li>";
+	document.getElementById("lista").innerHTML = listahtml;
+}
+
+
+<main>
+    <h3>Ingredientes do Bolo</h3>
+    <input type="text" id="ingrediente">
+    <button onclick="adicionarIngrediente()">Adicionar</button>
+    	<ul id="lista">
+    		<li>ITEM 01</li>
+    		<li>ITEM 02</li>
+    		<li>ITEM 03</li>
+    	</ul>
+    </main>
+
+#############
+# Operações #
+#############
+
+function somar() {
+	var campo1 = parseInt(document.getElementById("campo1").value);
+	var campo2 = parseInt(document.getElementById("campo2").value);
+
+	var soma = campo1 + campo2;
+	alert(soma);
+}
+
+<main>
+    <input type="text" name="campo1" id="campo1">
+    <input type="text" name="campo2" id="campo2">
+    <button onclick="somar()">SOMAR</button>
+</main>
+
+##########
+# Arrays #
+##########
+
+var lista = ["arroz","feijão","batata"];
+lista
+	(3) ["arroz", "feijão", "batata"]
+lista[0];
+	"arroz"
+lista[1];
+	"feijão"
+lista[2];
+	"batata"
+lista.length;
+	3
+
+#########################
+# Manipulação de Arrays #
+#########################
+
+	############################
+	# Posição do item do Array #
+	############################
+
+		var lista = ["Arroz","Feijão","Batata","Macarrão", 20];
+
+		lista.indexOf("Feijão");
+			1
+		lista.indexOf("Arroz");
+			0
+		lista.indexOf("Macarrão");
+			3
+		lista.indexOf(20);
+			4
+
+	###########################################################
+	# Inserir um separador transformado o Array numa "String" #
+	###########################################################
+
+		lista.join("/")
+			"Arroz/Feijão/Batata/Macarrão/20"
+
+	##################################
+	# Remover o ÚLTIMO item do Array #
+	##################################
+
+		lista.pop();
+
+	####################################
+	# Remover o PRIMEIRO item do Array #
+	####################################
+
+		lista.shift();
+
+	###########################
+	# Adiicionar item a lista #
+	###########################
+
+		lista.push("Mandioca");
+
+	#############################
+	# Mais Manipulação de Array #
+	#############################
+
+				###################
+				# Array em String #
+				###################
+
+				function arrayToString(){
+					let list = ['Ovo','Açúcar','Farinha de Trigo','Fermento'];
+
+					let resOne = list.toString();
+					console.log(`Array em string: ${resOne}\n`);
+
+					let resTwo = list.join(' - ');
+					console.log(`Trocando separador: ${resTwo}\n`);    
+
+					let resThree =list.indexOf('Farinha de Trigo');
+					console.log(`Posição do item do array: ${resThree}\n`);
+				}
+				arrayToString();
+
+				###############################
+				# Remove último ítem do Array #
+				###############################
+
+				function arrayPop(){
+					let list = [1,2,3,4,5,6,7,8,9];
+					let res = list.pop();
+					console.log(`Removido o ÚLTIMO item do Array: ${list}\n`);    
+				}
+				arrayPop();
+
+				#################################
+				# Remove primeiro ítem do Array #
+				#################################
+
+				function arrayShift(){
+					let list = [1,2,3,4,5,6,7,8,9];
+					let res = list.shift();
+					console.log(`Removido o PRIMEIRO item do Array: ${list}\n`);    
+				}
+				arrayShift();
+
+				############################
+				# Adiciona ítem aoo Array #
+				###########################
+
+				function arrayPush(){
+					let list = [1,2,3,4,5,6,7,8,9];
+					let res = list.push(10);
+					console.log(`Adicionado item ao Array: ${list}\n`);    
+				}
+				arrayPush();
+
+				function newArrayPush(){
+					let list = ['Ovo','Açúcar','Farinha de Trigo','Fermento'];
+					list[0] = 'Batata';
+					list[4] = 'Chocolate';
+					list[list.length] = 'Água';
+					console.log(`Alterar ou adiconando item no array:  ${list}\n`);
+				}
+				newArrayPush();
+
+				###########################
+				# Apaga item e quantidade #
+				###########################
+
+				function deleteList(){
+					let lista = ['I','II','III','IV','V','VI','VII','VIII','IX','X'];
+					lista.splice(1, 5);		// 1 - A partir dqui; 2 - Quantos a partir
+					let res = lista;
+					console.log(res);    
+				}
+				deleteList();
+
+				################
+				# Junta Arrays #
+				################
+
+				function concatArray(){
+					const oneArray = ['Eu','Tu','Ele'];
+					const twoArray = ['Nós','Vós','Eles'];
+					const threeArray = ['Pronome']
+					const res = oneArray.concat(twoArray,threeArray);
+					console.log(res);    
+				}
+				concatArray();
+
+				################
+				# Ordena Array #
+				################
+
+				function sortArray(){
+					const newSortArray = [1,3,5,7,9,2,4,6,8];
+					newSortArray.sort();
+					console.log(newSortArray);
+					
+					let familyArray = ['Alexander','Maria','Gabriela','Sofia'];
+					familyArray.sort();
+					console.log(familyArray);    
+				}
+				sortArray();
+
+				###########################
+				# Ordena em ordem inversa #
+				###########################
+
+				function reverseArray(){
+					let list = [1,2,3,4,5,6,7,8,9];
+					list.reverse();
+					console.log(list);   
+				}
+				reverseArray();
+
+				#############
+				# Array Map #
+				#############
+
+					function arrayMap(){
+						const lista01 = [2,4,6,8];
+						const lista02 = lista01.map((item)=>item*2);
+						const res = lista02;
+						console.log(res);
+					}
+					arrayMap();
+
+				################
+				# Array Filter #
+				################
+
+					function arrayFilter(){
+						const lista01 = [1,2,3,4,5,6,7,8,9,10];
+						const lista02 = lista01.filter((item)=>item%2==0);
+						const res = lista02;
+						console.log(res);
+					}
+					arrayFilter();
+
+				###############
+				# Array Every #
+				###############
+
+				function testEvery(){
+					const newAray = [1,2,3,4,5,6,7,8,9,10];
+					const newArrayTwo = newAray.every(item=>item<5);
+					console.log(newArrayTwo);
+				}
+				testEvery();
+
+				##############
+				# Array Some #
+				##############
+
+				function testSome(){
+					const newArray = ['Alexander','Maria','Gabriela','Sofia'];
+					const newArrayTwo = newArray.some(item=>item.length < 50);
+					const res = newArrayTwo;
+					console.log(res);
+				}
+				testSome();
+
+				##################
+				# Array Find	 #
+				# Retorna o Item #
+				##################
+
+
+
+
+	##########################################
+	# Script de verificação de item na lista #
+	##########################################
+
+		(" > 1 " - evitar choque com a posição "ZERO")
+
+		if(lista.indexOf("Mandioca") > 1) {
+			alert("Tem na lista");
+		} else {
+			alert("Não tem na lista");
+		}
+
+
+		#########################
+        #   Mudança de estilos  #
+        #########################
+
+    function showPhoneNumber(elemento){        
+        let thePhone = document.querySelector('.myPhone');
+        elemento.style.display='none';
+        thePhone.style.display='block';
+    }
+    function azul(){
+        limpar();
+        let putAzul = document.querySelector('.putClass');
+        putAzul.classList.add('azul');
+    }
+    function vermelho(){
+        limpar();
+        let putVermelho = document.querySelector('.putClass');
+        putVermelho.classList.add('vermelho');
+    }
+    function verde(){
+        limpar();
+        let putVerde = document.querySelector('.putClass');
+        putVerde.classList.add('verde');
+    }
+    function limpar(){
+        let clear = document.querySelector('.putClass');
+        clear.classList.remove('azul');
+        clear.classList.remove('vermelho');
+        clear.classList.remove('verde');
+    }
+
+
+
+	##########
+	# Objeto #
+	##########
+
+	const familia = {
+    	pai:'Alexander',
+    	mae:'Maria',
+    	filha01:'Gabriela',
+    	filha02:'Sofia',
+    	sorrir:()=>{
+        	console.log('Ka, Ka, Ka');        
+    },
+    	comer:()=>{
+        console.log('Nhoc, Nhoc, Nhoc');        
+    }
+};
+console.log('O nome do Pai:',familia.pai);
+familia.sorrir();
+familia.comer();
+
+	#####################
+	#	Objeto c/ this	#
+	#####################
+
+const almoco = {
+    carne:'Boi',
+    showRep:()=>{
+        this.outraCarne = '';
+        if(this.outraCarne == false){
+            console.log('Então só Boi');            
+        }else{
+            console.log('Pode ser galinha');
+        };
+    }    
+};
+console.log(almoco.carne);
+almoco.showRep();
+
+####################################
+# querySelector (querySelectorAll) #
+####################################
+
+<script>
+
+    let ingreTitle = window.document.querySelector('h3.titleIng');
+    ingreTitle.style.backgroundColor='red';
+
+    let ingre = window.document.querySelector('ol.lista');
+    ingre.style.backgroundColor='yellow';
+
+    let otherIngre = window.document.querySelector('ul.lista');
+    otherIngre.style.backgroundColor='green';
+
+    function newStyle(){
+        window.document.querySelector('.changeStyle').addEventListener('click',()=>{
+            let allLi = window.document.querySelectorAll('li');
+            for(let i in allLi){
+                allLi[i].style.padding='15px';
+                allLi[i].style.border='1px solid transparent';
+                allLi[i].style.listStyle='none';
+                allLi[i].style.margin='8px 0';
+                allLi[i].style.fontFamily='monospace'
+            }
+        });
+    }
+    newStyle();
+
+</script>
+
+####################
+# Métodos de String#
+####################
+
+		#####################
+		# length - tamanho  #
+		# indexOf - posição #
+		#####################
+
+function manString(){
+    let myName = 'Alexander Xavier Moreira';
+
+    let res_Comprimento = myName.length;
+    let res_Posicao = myName.indexOf('Xavier');
+
+    let newRes_posicao = '';
+
+    if(myName.indexOf('Moreira') > -1){
+        console.log('Achou o trecho da String');
+    }else{
+        console.log('Não achou o trecho da String');
+    }
+
+    console.log('Tamanho da string:',res_Comprimento);
+    console.log('Posicao que inicia o trecho da string:',res_Posicao);
+}
+manString();
+
+		#####################
+		# slice - corte		#
+		# substring - corte #
+		#####################
+
+function stringSlice(){
+    const myName = 'Alexander Xavier Moreira';
+    let resMyNameSlice = myName.slice(10,16);
+    let resMyNameSlice01 = myName.slice(-7);
+    let resMyNameSubstring = myName.substring(0,4);
+    let resMyNameSubstr = myName.substr(10,6);
+    
+    console.log(resMyNameSlice);
+    console.log(resMyNameSlice01);
+    console.log(resMyNameSubstring);
+    console.log(resMyNameSubstr);
+}
+stringSlice();
+
+		########################
+		# replace - substituir #
+		########################
+
+function stringReplace(){
+    const myName = 'Alexander Xavier Moreira';
+    let resMyName = myName.replace('Xavier','"DEVELOPER"');
+    console.log('Replace:',resMyName);
+}
+stringReplace();
+
+		###############################
+		# toUpperCase - p/ maiúscula  #
+		# toLowerCase - p/ minúscula  #
+		# charAt - o ítem da posição  #
+		###############################
+
+function stringToUpperCase(){
+    let myName = 'Alexander Xavier Moreira';
+    let myNewName = '         Maria         Lins         Moreira';
+
+    let resMyNameUpperCase = myName.toUpperCase();
+    let resMyNameLowerCase = myName.toLowerCase();    
+    myNewName = myNewName.trim();
+    let resMyNameCharAt = myName.charAt(10);
+
+    console.log(resMyNameUpperCase);
+    console.log(resMyNameLowerCase);
+    console.log(myNewName);
+    console.log(resMyNameCharAt);
+}
+stringToUpperCase();
+
+
+function funChart(){
+    let arrNum = 'Alexander';
+    let resArrNum = arrNum[1];
+    console.log(resArrNum);
+    if(resArrNum > -1){
+        console.log('Não Achou');
+    }else{
+        console.log('Achou');
+    }
+}
+funChart();
+
+		###########################
+		# split - string em Array #
+		###########################
+
+function funsplit(){
+    let content = 'Alexander;Maria;Gabriela;Sofia';
+    console.log(content.split(';'));
+}
+funsplit();
+
+############################################
+# Métodos de Number						   #
+# parseInt, parseFloat , toString, toFixed #
+############################################
+
+
+function toString(){
+    let num = 52;
+    let newNum = 43;
+    let res = num.toString();
+    console.log(`Convertendo de numero pra string: ${res+newNum}`);
+}
+toString();
+
+function toFixed(){
+    let num = 52.123421216136;
+    console.log(`Fixando uma quantidade de dígitos após o ponto: R$ ${num.toFixed(2)}`);
+}
+toFixed();
+
+function newParseInt(){
+    let num = '52.332';
+    console.log(num);
+    let newNum = parseInt(num);
+    console.log(parseInt(newNum));
+    console.log(`String p/ ponto flutuante: ${parseFloat(num) + 4}`);
+    console.log(`String p/ inteiro: ${newNum + 43}`);
+}
+newParseInt();
+
+
+#################
+# Verificadores #
+#################
+
+	var nome = prompt("Qual o seu nome?");
+	if (nome == "Alex") {
+		alert("Esse é o meu nome")
+	} else {
+		alert("Esse não é o meu nome");
+	}
+
+
+	function testeVerificador() {
+		var x = prompt("Informe um número:");
+		if(x>10) {
+			document.write("Número é maior que 10");
+		} else {
+			document.write("Número não é maior que 10z")
+		}
+	}
+
+#########
+# Loops #
+#########
+
+	#########
+	# WHILE #
+	#########
+
+		var x = 5;
+			while(x<10) {
+			document.write("Número é: " + x + "<br>");
+			x++;
+		}
+		
+
+		let html = '';
+    	let counter = 0;
+    	while(counter < 10){
+        	html += 'Number is: '+counter+'<br>';
+        	counter++;
+    	}
+    	window.document.querySelector('.loopWhile').innerHTML=html;
+
+	#######
+	# FOR #
+	#######
+
+		for (x = 0 ; x < 10; x++) {
+			document.write("Número é: " + x + "<br>");
+		}
+
+	#############
+	# FOR ARRAY #
+	#############
+
+	function montaLsta(){
+
+        const carros = ['FIAT Chronos','Volkswagem GOL','Toyota Corollas','Ferrari Spider'];
+
+        let html = '<ul>';
+
+        for(let i in carros){
+            html += '<li>'+carros[i]+'</li>';
+        }
+
+        html += '</ul>';
+
+        window.document.querySelector('.listaCarros').innerHTML = html;
+        }
+        montaLsta();
+
+	##########
+	# SWITCH #
+	##########
+
+	x = prompt("Informe um número entre 0 e 2");
+	switch(x) {
+		case "0":
+		document.write("AAAAAAAAAA");
+		break;
+		case "1":
+		document.write("BBBBBBBBBB");
+		break;
+		case "2":
+		document.write("CCCCCCCCCC");
+		break;
+		default:
+		document.write("Sua opção está errada");
+	}
+
+########################
+# JOGUINHO - EXERCÍCIO #
+########################
+
+
+// Função que verifica se o número
+// preenchido está correto
+
+function verificar() {
+	var n1 = document.getElementById("n1").innerHTML;
+	var n2 = document.getElementById("n2").value;
+
+	if(n1 == n2) {
+		alert("VOCÊ ACERTOU!!!");
+	} else {
+		alert("VOCÊ ERROU");
+	}
+	resetar();
+}
+
+
+// Função que limpa a segunda div a ser preenchida
+// e gera um novo número na primeira div. aletório de 0 a 100
+
+function resetar() {
+	document.getElementById("n2").value = "";
+
+	var r = Math.floor(Math.random()*100);
+	document.getElementById("n1").innerHTML = r;
+}
+
+
+<body onload="resetar()">
+    <main>
+        <div id="n1">0</div>
+        <input type="text" id="n2">
+        <div style="clear:both"></div>
+        <button onclick="verificar()">Verificar</button>
+    </main>
+</body>
+
+
+											####################
+											# JS INTERMEDIÁRIO #
+											####################
+
+
+####################
+# Eventos de Mouse #
+####################
+
+
+function apertoumouse() {
+	console.log("APERTOU O MOUSE");
+}
+function soltoumouse() {
+	console.log("SOLTOU O MOUSE");
+}
+function mouseEmCima() {
+	console.log("MOUSE PASSOU POR CIMA");
+}
+function mauseSaiuDeCima() {
+	console.log("MOUSE SAIU DE CIMA");
+}
+function mouseMovimentouPorCima() {
+	console.log("MOSE MOVIMENTOU POR CIMA");
+}
+function clicou() {
+	console.log("CLICOU");
+}
+function botaodireito() {
+	console.log("BOTÃO DIREITO");
+	return false;
+}
+function clicouDuasVezes() {
+	console.log("CLICOU DUAS VEZES")
+}
+
+
+<main>
+    <button onMouseDown="apertoumouse()">ON MOUSE DOWN</button><br><br>
+    <button onMouseUp="soltoumouse()">ON MOUSE UP</button><br><br>
+    <button onMouseOver="mouseEmCima()">ON MOUSE OVER</button><br><br>
+    <button onMouseOut="mauseSaiuDeCima()">ON MOUSE OUT</button><br><br>
+    <button onMouseMove="mouseMovimentouPorCima()">ON MOUSE MOVE</button><br><br>
+    <button onClick="clicou()">ON CLICK</button><br><br>
+    <button onContextMenu="return botaodireito()">ON CONTEXT MENU</button><br><br>
+    <button onDblClick="clicouDuasVezes()">ON DOUBLE CLICK</button>
+</main>
+
+######################
+# Eventos de Teclado #
+######################
+
+
+// event.keyCode - código da tecla
+
+	<input onkeydown="apertouTecla(event)" type="text">
+
+function apertouTecla(event) {
+	console.log("APERTOU ALGUMA TECLA " + event.keyCode);
+}
+
+	<input omkeyup="soltouTecla(event)" type="text">
+
+function soltouTecla(event) {
+	console.log("SOLTOU A TECLA " + event.keyCode);
+}
+
+	<input onkeypress="soltouTecla(event)" type="text">
+
+function pressionouTecla(event) {
+	console.log("PRESSIONOU A TECLA " + event.keyCode);
+}
+
+// Função para teclas específicas
+
+	<input onkeyup="apertouAlgumaTecla(event)" type="text">
+
+function pressionouOutraTecla(event) {
+	if(event.shiftKey == true && event.keyCode == 69) {
+		console.log("APERTOU A TECKA SHIFT + e");
+	} else {
+		console.log("APERTOU OUTRA TECLA");
+	}
+}
+
+<main>
+	ONKEYDOWN
+    <input onkeydown="apertouTecla(event)" type="text">
+    <br><br>
+    ONKEYUP
+    <input onkeyup="soltouTecla(event)" type="text">
+    <br><br>
+	ONKEYPRESS
+    <input onkeypress="pressionouTecla(event)" type="text">
+    <br><br>
+    TECLAS ESPECÍFICAS
+    <input onkeydown="pressionouOutraTecla(event)" type="text">
+</main>
+
+#####################
+# Eventos de Página #
+#####################
+
+#################################################
+# Página carregada - onload						#
+# Página fechada - onunload (sem muito sentido) #
+#################################################
+
+function paginaCarregada() {
+	alert("PÁGINA CARREGADA!!!");
+}
+
+<body onload="paginaCarregada()">
+    <main>
+
+    </main>
+</body>
+
+#########################
+# Eventos de Formulário #
+#########################
+
+##################################################
+# onsubmit="return false" - Não executa o submit #
+# onfocus - input ganha focus					 #
+# onblur - inpuy perde focus					 #
+# onchange - select é selecionado				 #
+##################################################
+
+
+function mudouOpcao(objeto) {
+	console.log("Selecionou: "+ objeto.value);
+}
+
+function campoFocado() {
+	console.log("Campo focado");
+}
+
+function campoDesfocado() {
+	console.log("Campo SEM foco");
+}
+
+
+<main>
+    <form method="POST" onsubmit="return false">
+        <input type="text" name="none" onfocus="campoFocado()" onblur="campoDesfocado()"><br><br>
+        <select name="cidade" onchange="mudouOpcao(this)">
+            <option>São Paulo</option>
+            <option>Rio de Janeiro</option>
+            <option>Belo Horizonte</option>
+            <option>Recife</option>
+        </select><br><br>
+        <input type="submit" value="Enviar">
+    </form>
+</main>
+
+
+
+########################
+# Jogo estourar balões #
+########################
+
+<style>
+	.bola {
+		width: 100px;
+		height: 100px;
+		background-color: #000;
+		border-radius: 100%;
+		position: absolute;
+		}
+</style>
+
+
+function addBola() {
+	var bola = document.createElement("div");
+	bola.setAttribute("class","bola");
+	var p1 = Math.floor(Math.random() * 500);
+	var p2 = Math.floor(Math.random() * 400);
+	bola.setAttribute("style","left:" + p1 + "px;top:" + p2 + "px;");
+	bola.setAttribute("onclick","estourar(this)");
+
+	document.body.appendChild(bola);
+}
+
+function estourar(elemento) {
+	document.body.removeChild(elemento);
+}
+
+function iniciar() {
+	setInterval(addBola, 1000);
+}
+
+
+
+<style>
+    .bola {
+		width: 50px;
+		height: 50px;
+		background-color: #000;
+		border-radius: 25px;
+		position: absolute;
+		}
+</style>
+
+<body onload="iniciar()">
+
+
+#######################
+# Manipulação de Data #
+#######################
+
+###############################
+# Retorna a data do parâmetro #
+###############################
+
+var dt = new Date(0);
+dt
+Wed Dec 31 1969 21:00:00 GMT-0300 (Horário Padrão de Brasília) {}
+
+##########################################
+# Retorna a data real - pedida em inglês #
+##########################################
+
+var dt = new Date(Date.parse("Febrewry 25, 1968"))
+dt
+Sun Feb 25 1968 00:00:00 GMT-0200 (Horário Padrão de Brasília) {}
+
+########################
+# Devolve o dia do Mês #
+########################
+
+dt.getDate();
+
+######################################
+# Devolve o dia da semana (de 0 a 6) #
+######################################
+
+dt.getDay();
+
+#################
+# Devolve o ano #
+#################
+
+dt.getFullYear()
+
+######################################################################
+# Devolve a data completa - adicionando "mais 1", pois inicia com 0  #
+######################################################################
+
+dt.getDate()+"/"+(dt.getMonth()+1)+"/"+dt.getFullYear();
+
+25/2/1968
+
+dt.getHours() - Hoas decorridas
+0
+dt.getMinutes(); - Minutos decorridos
+0
+dt.getMilliseconds() -Milisegundos decorridos
+0
+dt.getTime() - Tempo decorrido
+1549764000000
+
+#####################################################
+# Devolver o dia da semana em texto usando um Array #
+#####################################################
+
+var dt = new Date(Date.parse("Febrewary 10, 2019"));
+var dias = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexata","Sábado"]
+dias[dt.getDay()]
+"Domingo"
+
+###########################################################
+# Adicionando dias a uma data, podendo ser usado com hora #
+###########################################################
+
+var dt = new Date(Date.parse("Febrewary 10, 2019"));
+
+dt.setDate(dt.getDate()+60);
+dt
+Thu Apr 11 2019 00:00:00 GMT-0300 (Horário Padrão de Brasília) {}
+
+#########################
+#						#
+#	MAIS SOBRE DATAS	#
+#						#
+#########################
+
+
+
+function newDate01(){
+    let data01 = new Date();
+    console.log(`Data completa: ${data01}`);
+    console.log(`Data como string: ${data01.toDateString()}`);
+    console.log(`Sem fuso horário (Hora de Greenwitch): ${data01.toUTCString()}`);
+    console.log(`String: ${data01.toString()}`);
+}
+newDate01();
+
+function newDate02(){
+    let data01 = new Date(2020, 0, 1, 13, 34, 36);
+    console.log(`Data/Hora: ${data01}`);;
+}
+newDate02();
+
+function newDate03(){
+    let data = new Date('1987-7-1 12:00:00');
+    console.log(`Date String: ${data}`);
+}
+newDate03();
+
+function newDate04(){
+    let data = new Date();
+    let resAno =  data.getFullYear();
+    let resMes = data.getMonth();
+    let resDiaDaSemana = data.getDay();
+    let resdia = data.getDate();
+    let resHora = data.getHours();
+    let resMinuto = data.getMinutes();
+    let resSegundo = data.getSeconds();
+    let resMili = data.getMilliseconds();
+    let resTime = data.getTime();
+    console.log(`Ano: ${resAno}`);
+    console.log(`Mês: ${resMes}`);
+    console.log(`Dia da semana: ${resDiaDaSemana}`);
+    console.log(`Dia: ${resdia}`);
+    console.log(`Hora: ${resHora}`);
+    console.log(`Minuto: ${resMinuto}`);
+    console.log(`Segundos: ${resSegundo}`);
+    console.log(`Milisegundos: ${resMili}`);
+    console.log(`Total de milisegundos desde 1970: ${resTime}`);
+}
+newDate04();
+
+function newDate05(){
+    let data = Date.now();
+    console.log(`Total de milisegundos desde 1970: ${data}`);
+}
+newDate05();
+
+function newDate06(){
+    let data = new Date();
+    data.setFullYear(1987);
+    let resData = data;
+    console.log(`Setando ano: ${resData}`);
+}
+newDate06();
+
+function newDate07(){
+    let data = new Date();
+    data.setDate(data.getDate() + 192);
+    let resDate = data;
+    console.log(`Aumentando os dias: ${resDate}`);
+}
+newDate07();
+
+
+#############################
+#							#
+#	FUNÇÕES MATEMÁTICAS		#
+#							#
+#############################
+
+
+function matematica(){
+
+    let num = Math.PI;
+    console.log(`\nValor de PI: ${num}\n`);
+
+    let num01 = Math.round(3.67);
+    console.log(`Arredondadando: ${num01}\n`);
+
+    let num02 = Math.floor(3.99);
+    console.log(`Arredondando para baixo: ${num02}\n`);
+
+    let num03 = Math.ceil(3.1);
+    console.log(`Arredondando para cima: ${num03}\n`);
+    
+    let num04 = Math.abs(-3.345);
+    console.log(`Número absoluto: ${num04}\n`);
+    
+    let num05 = Math.min(34,77,16,93,25,75,80);
+    console.log(`O menor dos números: ${num05}\n`);
+
+    let num06 = Math.max(34,77,16,93,25,75,80);
+    console.log(`O maior dos números: ${num06}\n`);
+    
+    let num07 = Math.floor(Math.random()*100)
+    console.log(`Sorteio randômico arredondando com limite: ${num07}\n`);
+}
+matematica();
+
+
+
+#####################################
+# Projeto: Validação de Formulários #
+#####################################
+
+		* Primeiro: Impedir que o formuláio seja
+		enviado com " onsubmit="return false"> "
+		e substituir por uma função [ Ex: validar() ].
+
+		<form action="POST" onsubmit="return false">
+		<form action="POST" onsubmit="return validar()">
+
+
+function validar() {
+	var valor = document.getElementById("numero").value;
+
+	if(valor.length > 2) {
+		alert("Você informou um número maior que dois algarismos");
+		return false;
+	} else {
+		return true;
+	}
+}
+
+<form action="POST" onsubmit="return validar()">
+    <label for="">Digite um número de dois algarismos</label>:<br>
+    <input type="text" name="numero" id="numero"> <br><br>
+    <input type="submit" value="Enviar">
+</form>
+
+
+################
+# Temporização #
+################
+
+#########################
+# INTERVALO DE EXECUÇÃO #
+#########################
+
+<script type="text/javascript">
+	function acao() {
+		document.write("Exibir alguma coisa", "<br>");
+		}
+		setInterval(acao, 1000);
+</script>
+
+##########################
+# TEMPO ANTES DE INICIAR #
+##########################
+
+<script type="text/javascript">
+	function iniciar() {
+		document.write("Começando......", "<br>");
+		}
+		setTimeout(iniciar, 5000);
+</script>
+
+
+#########################
+# CONTROLE COM VARIÁVEL #
+#########################
+
+function acao() {
+    document.write("Controle com variável...", "<br>");
+    }
+    var timer = setInterval(acao, 1000);
+</script>
+
+No console:
+
+clearInterval(timer);
+
+##############################
+#  DESCONSTRUÇÃO DE OBJETOS  #
+##############################
+
+const pessoa = {
+    nome: 'Alexander',
+    sobrenome: 'Xavier Moreira',
+    idade: 52,
+    social:{
+        facebook: 'alexander',
+        instagram: '@alexander',
+        email: 'alexkurumin@gmail.com',
+        youtube: {
+            url:'@alexmoreirafitter',
+            seguidores: 1200,
+        }
+    },
+    nomeCompleto:function(){
+        return `${this.nome} ${this.sobrenome}`;
+    }
+}
+
+// Pegando objeto dentro do objeto
+// let {facebook, instagram} = pessoa.social;
+// console.log(`Pegando objeto dentro do objeto: ${facebook} - ${instagram}`);
+
+// Pegar itens do objeto, e outros itens de objeto interno
+// let {nome,sobrenome,social:{facebook}} = pessoa;
+// console.log(`Pegar itens do objeto, e outros itens de objeto interno: ${nome} - ${sobrenome} - ${facebook}`);
+
+// Pegar infrmacao em nível mais abaixo
+// let {nome, idade, social:{youtube:{url}}} = pessoa;
+// console.log(nome, idade, url);
+
+// Pegar o item, alterando o nome do item
+// let {social:{youtube:{url:instagram}}} = pessoa;
+// console.log(instagram);
+
+// function pegarNomeCompleto(objeto){
+//     let nome = objeto.nome;
+//     let sobrenome = objeto.sobrenome;
+//     return `${nome} ${sobrenome}`
+// }
+// console.log(pegarNomeCompleto(pessoa));
+
+
+function pegarNomeCompleto({nome, sobrenome}){
+    return `${nome} ${sobrenome}`;
+}
+console.log(pegarNomeCompleto(pessoa));
+
+function pegarNomeCompleto({nome, sobrenome, idade, profissao = 'Militar'}){
+    return `Nome: ${nome}\nSobrenome: ${sobrenome}\nIdade: ${idade}\nProfissão: ${profissao}`;
+}
+console.log(pegarNomeCompleto(pessoa));
+
+#############################
+#  DESCONSTRUÇÃO DE ARRAYS  #
+#############################
+
+const perfil = ['Alexander Xavier Moreira','Alexander','Xavier Moreira','52','@alexmoreira'];
+
+// Pegando todos os itens do Array
+
+ let [nomeCompleto, nome, sobrenome, idade, instagram] = perfil;
+ console.log(`${nomeCompleto}\n${nome}\n${sobrenome}\n${idade}\n${instagram}`);
+
+//  Pegando alguns itens do array
+
+ let [nomeCompleto, , , , instagram] = perfil;
+ console.log(`${nomeCompleto}\n${instagram}`);
+
+//  Outra forma, podendo ter valor padrão pré definido
+
+ const [nome, sobrenome, idade=52] = ['Alexander','Moreira'];
+ console.log(nome, sobrenome, idade);
+
+//  Função para desconstruir
+function desconstruir(){
+    return ['Alexander','Moreira',52];
+}
+let [nome, sobrenome, idade] = desconstruir();
+console.log(nome, sobrenome, idade);
+
+
+#####################
+#  ARROW FUNCTIONS  #
+#####################
+
+const somar = (x,y)=>x+y;
+console.log(`Soma: ${somar(40,30)}`);
+
+let letters = nome=>nome.length;
+console.log(`Número de letras: ${letters('Alexander')}`);
+
+
+#####################
+#  OPERADOR SPREAD  #
+#####################
+
+
+let numOne = [1,2,3,4,5];
+let numAll = [...numOne,6,7,8,9,10];
+console.log(numAll);
+
+let teste01 = [11,12,13,14,15];
+let teste02 = [16,17,18,19,20];
+let testeAll = [...teste01,...teste02];
+console.log(`${testeAll}`);
+
+const infoPersonal = {
+    nome: 'Alexander',
+    sobrenome: 'Moreira',
+    nomeCompleto: 'Alexander Moreira',
+    idade: 52,
+    naturalidade: 'Rio de Janeiro'
+};
+const newInfo = {
+    ...infoPersonal,
+    estado: 'Capital',
+    pais: 'Brasil'
+};
+console.log(newInfo);
+
+
+###################
+#  OPERADOR REST  #
+###################
+
+function add(...names){
+    console.log(`${names}`);    
+}
+add('Alexander','Maria','Gabriela','Ana Sofia');
+
+function numeros(...numero){
+    console.log(numero);    
+}
+numeros(1,2,3,4,5,6,7,8,9,10);
+
+
+######################################
+#  OPERADOR REST COM OPERADOR SPREAD #
+######################################
+
+function add(name01,...name02){
+    let nameAll =[
+        ...name01,
+        ...name02
+    ];
+    return nameAll;
+};
+let name01 = ['Alexander','Maria'];
+let addOther = add(name01,'Gabriela','Ana Sofia','Luna');
+console.log(`${addOther}`);
+
+
+######################
+#  OPERADOR INCLUDES #
+######################
+
+
+function opInclude(){
+    const list = ['Alexander','Maria','Gabriela','Ana Sofia','Luna'];
+    if(list.includes('Alexander') == true){
+        console.log('Item existe no Array');
+    }else{
+        console.log('Item NÃO existe no Array');
+    }
+}
+opInclude();
+
+
+function opInclude01(){
+    let listString = 'Alexander';
+    if(listString.includes('x') == true) {
+        console.log('Existe a letra');        
+    }else{
+        console.log('Não existe a letra');
+    }
+}
+opInclude01();
+
+####################
+#  OPERADOR REPEAT #
+####################
+
+
+function opRepeat(){
+    let letter = ' F A M Í L Í A ';
+    console.log(`${letter.repeat(10)}`);    
+}
+opRepeat();
+
+###################################
+#  Objeto: Key, Values e Entries  #
+###################################
+
+
+const lista = ['Alex','Maria','Gabi','Ana','Luna'];
+let res = Object.keys(lista);
+console.log(res);
+
+const newLista = {
+    name: 'Alexander',
+    sobrenome: 'Moreira',
+    nomeCompleto: 'Alexander Moreira',
+    idade: 52
+};
+let newRes = Object.keys(newLista);				=> Retorna as chaves
+let newRes01 = Object.values(newLista);			=> Retorna os valores
+let newRes02 = Object.entries(newLista);		=> Retorna um array com a chave e o item
+console.log(newRes);
+console.log(newRes01);
+console.log(newRes02);
+
+#############################################
+#  MAIPUÇAÕ DE STRING COM padStart, padEnd  #
+#############################################
+
+
+function opPad(){
+    let numberPhone = '+55 (61)';
+    let numberPhone01 = '9 8242 2932';
+    let resEndNumberPhone = numberPhone.padEnd(16,'*');
+    let resStartNumberPhone = numberPhone01.padStart(16,'*');
+    console.log(`Número Telefônico: ${resEndNumberPhone}`);
+    console.log(`Número Telefônico: ${resStartNumberPhone}`);
+
+}
+opPad();
+
+function creditCard(){
+    let myCard = '1234-1234-1234-';
+    let resMyCard = myCard.padEnd(18,'*');
+    console.log(`My Credit Card Number: ${resMyCard}`);    
+}
+creditCard();
+
+#############
+#  PROMISE  #
+#############
+
+
+function toMake(){
+    let retPromise = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve('Ok!!!');
+        },3000);
+    });
+    return retPromise;
+}
+toMake().then((res)=>{
+    console.log(`Resposta do promise: ${res}`);    
+});
+
+
+#########
+# FETCH #
+#########
+
+
+function opFetch(){
+    const url = 'https://alunos.b7web.com.br/api/ping';
+    const parametros = {
+        method:'POST',
+        body:JSON.stringify({
+            nome: 'Alexander',
+            idade: 52
+        })
+    };
+    fetch(url,parametros)
+    .then((res)=>res.json())
+    .then((json)=>{
+        console.log(json);        
+    });
+};
+opFetch()
+
+
+
+###############
+# Async/Await #
+###############
+
+
+
+
+
+
+
+					##############################################
+					#			ORIENTAÇÃO A OBJETO				 #
+					##############################################
+
+Todo objeto tem:
+- Caracterísitca / Propriedade
+- Função / Ação
+
+		######################
+		# TEMPLATE DO OBJETO #
+		######################
+
+
+function animal() {
+    this.raca="";        ;
+    this.nome="";
+    this.idade="";
+    this.peso-"";
+}
+
+		#######################
+		# INSTANCIAR O OBJETO #
+		#######################
+
+##########################
+# DEFININDO PROPRIEDADES #
+##########################
+
+var serVivo = new animal();
+    serVivo.raca="ViraLata";
+    serVivo.nome="Apolo";
+    document.write(
+        "A Raça do cão é: "+serVivo.raca,"<br>",
+        "O nome do cão é: "+serVivo.nome,"<br>",
+        "A idade do cão é: "+serVivo.idade,"<br>",
+        "O peso do cão é: "+serVivo.peso+"<br><br>"
+		);
+
+############################
+# DEFININDO AÇÕES / MÉTODO #
+############################
+
+this.urinar = function() {
+    console.log("Xiiiiiiii........");
+    }
+
+	serVivo.urinar();
+	Xiiiiiiii........
+
+###################
+# FUNÇÃO AUXILIAR #
+###################
+
+		this.comer = function(kg) {
+				for(var i=0; i<kg; i++) {
+					this.mastigar(i);
+				}
+
+
+this.comer = function(kg) {
+    console.log("Huuummmm...");
+    this.peso = this.peso + (kg/2);
+    }
+
+	serVivo.comer(6);
+	Huuummmm...
+
+	serVivo.peso;
+	33
+
+
+###########################################
+
+function animal() {
+        this.raca="PitBull";
+        this.nome="Zeus";
+        this.idade=8;
+        this.peso=30;
+
+        this.urinar = function() {
+          document.write("Xiiiiiiii........","<br>");
+        }
+
+        this.comer = function(kg) {
+
+          for(var i=0; i<kg; i++) {
+            this.mastigar(i);
+          }
+
+          document.write("Huuummmm...","<br>");
+          this.peso = this.peso + (kg/2);
+        }
+
+        this.mastigar = function(i) {
+          document.write(i+" - nhoc...","<br>");
+        }
+
+
+      }
+      var serVivo = new animal();
+      serVivo.raca="ViraLata";
+      serVivo.nome="Apolo";
+      serVivo.urinar();
+      serVivo.comer(10);
+      document.write(
+        "A Raça do cão é: "+serVivo.raca,"<br>",
+        "O nome do cão é: "+serVivo.nome,"<br>",
+        "A idade do cão é: "+serVivo.idade,"<br>",
+        "O peso do cão é: "+serVivo.peso,"<br><br>",
+        );
+
+      var serVivo01 = new animal();
+      serVivo01.raca = "Labrador";
+      serVivo01.nome = "Mercurio";
+      document.write(
+        "A Raça do cão é: "+serVivo01.raca,"<br>",
+        "O nome do cão é: "+serVivo01.nome,"<br>",
+        "A idade do cão é: "+serVivo01.idade,"<br>",
+        "O peso do cão é: "+serVivo01.peso);
+
+###########################################
+
+
+############################
+# INTROCUÇÃO À WEB STORAGE #
+############################
+
+Tipos: LOCAL STORAGE e SESSION STORAGE
+
+AS FOMAS SÃO IGUAIS TANTO PARA "LOCAL" QUANTO PARA "SESSION"
+
+############
+# ADICONAR #
+############
+
+localStorage.setItem("nome","Alexander");
+      localStorage.setItem("sobrenome","Moreira")
+      document.write(
+        localStorage.getItem("nome") + " " +
+        localStorage.getItem("sobrenome") + " " +
+		
+		#OUTRA FORMA
+		 
+		localStorage.idade=105;
+      );
+      
+      document.write("<br>");
+
+###########
+# REMOVER #
+###########
+
+      localStorage.removeItem("nome");
+      document.write(
+        localStorage.getItem("nome") + " " +
+        localStorage.getItem("sobrenome") + " " +		 
+      );
+
+
+#########################
+# ADICONAR COM PERGUNTA #
+#########################
+
+<main>
+	<div id="info"></div>
+</main>
+
+if (typeof localStorage.name == "undefined") {
+    localStorage.name = prompt("Qual seu nome?");
+    }
+
+    document.getElementById("info").innerHTML=("Bem vindo(a) ")+localStorage.name;
