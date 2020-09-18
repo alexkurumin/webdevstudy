@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FFCC00">
+    <link rel="shortcut icon" href="imagens/setembroAmareloIcon.jpeg" type="image/x-icon">
+    <title>Setembro Amarelo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;500&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            background-color: none;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            min-height: 100vh;
+            background-image: linear-gradient(to top, #FFCC00, #FAA201);
+        }
+        .show{
+            display: block;
+        }
+        .noShow{
+            display: none;
+        }
+        .show,
+        .noShow{
+            text-align: center;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 200;
+            font-size: minmax(12px, 10vw);
+            position: absolute;
+            top: 40%;
+            left: 10%;
+            right: 10%;
+            color: #212121;
+            font-style: oblique;
+            letter-spacing: -1px;
+            cursor: pointer;
+            padding: 5px;
+            transition: ease-in-out 300ms all;
+        }
+        button{
+            font-family: 'Oswald', sans-serif;
+            font-size-adjust: 12px;
+            text-transform: uppercase;
+            background-color: #FAA201;
+            padding: 5px 15px;
+            color: #212121;
+            cursor: pointer;
+            position: fixed;
+            top: 2px;
+            left: 2px;
+            transition:  ease-in-out 150ms all;
+        }
+        button:hover{
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <button>click on the central text</button>
+    <main>
+        <h1 title='CLICK' class="show">Talk to me. I will always be here to hear you.</h1>
+        <h1 title='CLICK' class="noShow">Fale comigo. Eu estarei sempre aqui para te ouvir.</h1>
+        <header>
+        </header>
+        <section>
+
+        </section>
+        <footer>
+
+        </footer>
+    </main>
+    <script>
+        function enableDisc(){
+            document.querySelector('.show').addEventListener('click',()=>{
+                document.querySelector('.show').style.display = 'none';
+                document.querySelector('.noShow').style.display = 'block';
+            });
+        };
+        enableDisc();
+
+        function renableDisc(){
+            document.querySelector('.noShow').addEventListener('click',()=>{
+                document.querySelector('.show').style.display = 'block';
+                document.querySelector('.noShow').style.display = 'none';
+            });
+        };
+        renableDisc();
+    </script>
+</body>
+</html>
