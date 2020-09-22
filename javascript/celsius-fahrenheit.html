@@ -14,11 +14,14 @@
             list-style: none;
             outline: 0;
         }
+        body{
+            background-color: #1d3557;
+        }
         section{
             min-height: 100vh;
             width: 320px;
             margin: 0 auto;
-            background-color: #fff;
+            background-color: transparent;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -35,16 +38,17 @@
             background-color: transparent;
         }
         section .title{
-            color: #212121;
-            font-weight: 100;
+            color: #fff;
+            font-weight: 900;
             font-family: sans-serif;
             font-size: 14px;
+            line-height: 28px;
         }
         section .celsius{
-            color: #212121;
+            color: #fff;
         }
         section .cRes{
-            color: #444;
+            color: #fff;
             text-transform: uppercase;
             font-weight: 100;
             padding: 10px;
@@ -63,7 +67,7 @@
 <body>
     <section>
         <img src="https://pt.calcuworld.com/wp-content/uploads/sites/6/2020/01/conversor-de-temperaturas-150x150.png" alt="">
-        <label class="title">Calculando de Celsius para Fahrenheit</label>
+        <label class="title">Calculando de Celsius <br> para Fahrenheit</label>
         <input class="celsius" type="number">
         <label class="cRes">Resultado</label>
     </section>
