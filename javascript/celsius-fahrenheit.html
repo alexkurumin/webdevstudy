@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+            outline: 0;
+        }
+        section{
+            min-height: 100vh;
+            width: 320px;
+            margin: 0 auto;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        section input{
+            padding: 10px;
+            border: none;
+            color: #ccc;
+            border: 1px solid #ccc;
+            background-color: transparent;
+        }
+        section .title{
+            color: #212121;
+            font-weight: 100;
+            font-family: sans-serif;
+            font-size: 14px;
+        }
+        section .celsius{
+            color: #212121;
+        }
+        section .cRes{
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 100;
+            padding: 10px;
+            border: 1px solid #ccc;
+            font-family: sans-serif;
+            text-shadow: 3px 3px 0 #000;
+            background-color: transparent;
+        }
+        section label, input{
+            margin: 15px 0;
+            text-align: center;
+            width: 90%;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <label class="title">Calculando de Celsius para Fahrenheit</label>
+        <input class="celsius" type="number">
+        <label class="cRes">Resultado</label>
+    </section>
+    <script>
+        function calcula(){
+
+            document.querySelector('.celsius').addEventListener('keyup',()=>{
+                let vCelsius = document.querySelector('.celsius').value;
+                let vRes = document.querySelector('.cRes');
+                let cRes = (vCelsius * 9/5) + 32;
+                // vRes.innerHTML = cRes;
+                vRes.innerHTML = `<strong>${vCelsius}°C</strong> é igual a <strong>${cRes}</strong>°F.`
+            });
+        }
+        calcula();
+    </script>    
+</body>
+</html>
